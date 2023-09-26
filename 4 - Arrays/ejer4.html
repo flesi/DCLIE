@@ -1,0 +1,36 @@
+<!-- Un programa que pida al usuario 10 números, calcule su media y luego muestre los que están  
+por encima de la media -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let arrayNumeros = []
+        let sumaNumeros = 0
+        for (let i = 0; i < 10; i++) {
+            arrayNumeros[i] = parseInt(prompt("Escribe el numero " + i))    
+            sumaNumeros = sumaNumeros + arrayNumeros[i]
+        }
+        let media = sumaNumeros/arrayNumeros.length
+        
+        alert("La media de todos los numeros es " + media)
+
+        for (let i = 0; i < arrayNumeros.length; i++) {
+            if (arrayNumeros[i]>media) {
+                alert(arrayNumeros[i])
+            }           
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
