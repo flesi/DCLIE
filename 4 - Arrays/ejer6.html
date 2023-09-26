@@ -1,0 +1,41 @@
+<!-- Escribe un script para generar un array de dos dimensiones (matriz). Se le pedirá al usuario 
+primero el tamaño de la matriz (que será cuadrada): -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+
+let size = parseInt(prompt("Tamaño de la matriz:"))
+
+let matrizValores = [[]]
+
+let tabla = document.getElementById("tabla")
+
+for (let i = 0; i < size; i++) {
+    let fila = document.createElement('tr');
+    for (let j = 0; j < size; j++) {
+        let celda = document.createElement('td');
+        fila.appendChild(celda);
+
+        matrizValores[i][j] = prompt("Dime el valor de la fila " + i + " y la columna " + j +":")
+
+        
+    }
+    tabla.appendChild(fila);
+}
+
+
+</script>
+
+</head>
+<body>
+    <table id="tabla">
+
+    </table>
+</body>
+</html>
