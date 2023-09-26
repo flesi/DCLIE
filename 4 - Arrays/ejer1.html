@@ -1,0 +1,25 @@
+<!-- 1. Crea un programa que pida al usuario 6 números y luego los muestre en orden inverso (pista:
+usa un array para almacenarlos y "for" para mostrarlos). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arrayNumeros = []
+        for (let i = 0; i < 5; i++) {
+            arrayNumeros[i] = prompt("Escribe el numero " + i)    
+        }
+        
+        
+        for (let i = arrayNumeros.length; i >= 0 ; i--) {
+            console.log(arrayNumeros[i]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

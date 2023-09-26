@@ -1,0 +1,26 @@
+<!-- 2. Crea un programa que pregunte al usuario cuantos números va a introducir (por ejemplo, 5), le
+pida todos esos números, los guarde en un array y finalmente calcule y muestre la media de
+esos números. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let numeros = parseInt(prompt("Cuantos numeros vas a introducir?"))
+        let arrayNumeros = []
+        let sumaNumeros = 0;
+
+        for (let i = 0; i < numeros; i++) {
+            arrayNumeros[i] = parseInt(prompt("Numero " + i))
+            sumaNumeros=sumaNumeros+arrayNumeros[i]
+        }
+        let media = sumaNumeros/numeros
+        alert("La media de los numeros introducidos es: " + media)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

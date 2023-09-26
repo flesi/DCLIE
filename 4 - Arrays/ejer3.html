@@ -1,0 +1,28 @@
+<!-- Crea un array de 100 elementos. El valor del primer elemento será 1, valor del segundo
+elemento será 2, y así sucesivamente, de tal forma que el último elemento del array tendrá el
+valor 100. Calcula la media de todos los elementos del array. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arrayCienElementos = []
+        let sumaNumeros = 0;
+
+        for (let i = 0; i <= 100; i++) {
+            arrayCienElementos[i] = i+1
+            sumaNumeros = sumaNumeros + arrayCienElementos[i]
+        }
+        
+        let media = sumaNumeros/100
+        console.log(media)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
