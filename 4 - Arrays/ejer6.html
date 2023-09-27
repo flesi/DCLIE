@@ -20,27 +20,29 @@ primero el tamaño de la matriz (que será cuadrada): -->
 
     </table>
 
-
-
     <script>
 
-        let size = parseInt(prompt("Tamaño de la matriz:"))
+        let matrizSize = parseInt(prompt("Tamaño de la matriz:"))
         
-        let matrizValores = [[]]
-        
+        let arrayA = []
+        let arrayB = []
+              
         let tabla = document.getElementById("tabla")
-        
-        for (let i = 0; i < size; i++) {
-            let fila = document.createElement('tr');
-            for (let j = 0; j < size; j++) {
-                let celda = document.createElement('td');
-                fila.appendChild(celda);
-                //matrizValores[i][j] = prompt("Dime el valor de la fila " + i + " y la columna " + j +":")
-             
+
+        for (let i = 0; i < matrizSize; i++) {
+            let fila = document.createElement('tr')
+            for (let j = 0; j < matrizSize; j++) {
+                let celda = document.createElement('td')
+                arrayB[j] = "Celda " + (i+1) + "-" + (j+1)
+
+                celda.innerHTML = arrayB[j]
+                fila.appendChild(celda)
             }
-            tabla.appendChild(fila);
-        }
-        
+            arrayA[i] = arrayB
+            tabla.appendChild(fila)
+        }        
+
+           
         
         </script>
 </body>
