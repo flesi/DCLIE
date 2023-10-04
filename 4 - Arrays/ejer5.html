@@ -11,10 +11,20 @@ los nombres que se han introducido ordenados alfabéticamente -->
     <script>
 
         let arrayNombres = []
+        let nombre = ""
+
         do {
-                         
-            let nombre = prompt("Escribe un nombre")
-        } while (nombre!="");
+            nombre = prompt("Escribe un nombre")
+            if (nombre!="") {
+                arrayNombres.push(nombre)    
+            }            
+
+        } while (nombre != "");
+
+        for (const valor of arrayNombres) {
+            alert(valor)
+        }
+
 
     </script>
 </head>
