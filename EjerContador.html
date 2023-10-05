@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cuerpo {
+        width: 250px;
+        height: 300px;
+        text-align: center;
+        background-color:tomato;
+        border-radius: 15%;
+        border: black solid 1px;
+
+    }
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: medium;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <div class="cuerpo">
+        <h1 id="numero">0</h1>
+        Unidades<br>
+        <button onclick="cambiarNumero(1)">+1</button>
+        <button onclick="cambiarNumero(2)">-1</button>
+
+        <br>
+        <br>Decimales<br>
+        <button onclick="cambiarNumero(3)">+10</button>
+        <button onclick="cambiarNumero(4)">-10</button>
+    </div>
+
+    <script>
+        
+
+        function cambiarNumero(opc) {
+            let numero = parseInt(document.getElementById("numero").innerHTML);
+            switch (opc) {
+                case 1:
+                numero = numero + 1
+                    break;
+                case 2:
+                    if (numero>0) {
+                        numero = numero - 1        
+                    } 
+                    break;
+                case 3:
+                    if (numero%10!=0) {
+                        numero = numero + (10-(numero%10))
+                    } else {
+                        numero = numero + 10
+                    }
+                    break;
+                case 4: //TENGO QUE ARREGLAR ESTA PARTE
+                    if (numero>0) {
+                        if (numero%10!=0) {
+                        numero = numero - (numero%10)
+                        } else {
+                            numero = numero - 10
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById("numero").innerHTML = numero
+        }
+
+
+    </script>
+</body>
+
+</html>
