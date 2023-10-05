@@ -9,43 +9,49 @@ no es entre 0 y 10 mostrará el error “Nota errónea”:
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div>
         <p>Introduce una nota entre 0 y 10</p>
         <input id="inputData">
-        <button>Consultar Nota</button>
+        <button onclick="checkNota()">Consultar Nota</button>
 
-        <h2 id="resultado">texto</h2>
+        <h2 id="resultado"> </h2>
     </div>
 
     <script>
 
-        switch (nota) {
-            case nota>0 && nota <= 3:
-                console.log("My deficiente")
-                break;
+        function checkNota() {
+            let nota = document.getElementById("inputData").value
+            let resultado = document.getElementById("resultado")
 
-            case nota>3 && nota < 5:
-                console.log("Insuficiente")
-                break;                
-                
-            case value:
-                
-            break;
-            
-            default:
-                break;
+
+            if (nota >= 0 && nota < 3) {
+                resultado.innerText = "Muy deficiente"
+            } else if (nota >= 3 && nota < 5) {
+                resultado.innerText = "Insuficiente"
+            } else if (nota >= 5 && nota < 6) {
+                resultado.innerText = "Suficiente"
+            } else if (nota >= 6 && nota < 7) {
+                resultado.innerText = "Bien"
+            } else if (nota >= 7 && nota <= 9) {
+                resultado.innerText = "Notable"
+            } else if (nota == 10) {
+                resultado.innerText = "Sobresaliente"
+            } else {
+                resultado.innerText = "Nota errónea"
+            }
         }
-
-
 
     </script>
 
 
 </body>
+
 </html>
