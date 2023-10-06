@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="numero">
+    <button onclick="fibonnaci()" >Mostrar Fibonnaci</button>
+    
+
+
+    <script>
+
+        function fibonnaci() {
+            let limite = parseInt(document.getElementById("numero").value)
+
+            let arrayFibonnaci = []
+            let anterior = 0
+            let actual = 1
+
+            if (limite == 0) {
+                arrayFibonnaci.push(0)
+            } else {
+                arrayFibonnaci.push(0, 1)
+                while (anterior + actual <= limite) {
+                    let siguiente = anterior + actual
+                    arrayFibonnaci.push(siguiente)
+                    anterior = actual
+                    actual = siguiente
+                }
+            }
+
+            document.write(arrayFibonnaci.join(", "))
+        }
+
+    </script>
+</body>
+</html>

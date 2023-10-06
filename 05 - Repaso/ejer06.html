@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="filas" placeholder="numero de filas">
+    <input id="columnas" placeholder="numero de columnas">
+    <br><br>
+    <button onclick="generarTabla()">Generar Tabla</button>
+
+    <table id="miTabla" border="1px">
+    </table>
+
+    <script>
+
+        function generarTabla(params) {
+            let nFilas = parseInt(document.getElementById("filas").value);
+            console.log(nFilas)
+            let nColumnas = parseInt(document.getElementById("columnas").value);
+            console.log(nColumnas)
+            let tabla = document.getElementById("miTabla");
+
+            let contador = nFilas*nColumnas;
+
+            for (let i = 0; i < nFilas; i++) {
+                let fila = document.createElement('tr')
+                for (let j = 0; j < nColumnas; j++) {
+                    let columna = document.createElement('td')
+                    columna.innerText = contador;
+                    contador--
+                    fila.append(columna)
+                }
+                tabla.appendChild(fila)
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
