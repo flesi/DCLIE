@@ -1,0 +1,91 @@
+<!-- /*
+ * Los primeros dispositivos móviles tenían un teclado llamado T9
+ * con el que se podía escribir texto utilizando únicamente su
+ * teclado numérico (del 0 al 9).
+ *
+ * Crea una función que transforme las pulsaciones del T9 a su
+ * representación con letras.
+ * - Debes buscar cuál era su correspondencia original.
+ * - Cada bloque de pulsaciones va separado por un guión.
+ * - Si un bloque tiene más de un número, debe ser siempre el mismo.
+ * - Ejemplo:
+ *     Entrada: 6-666-88-777-33-3-33-888
+ *     Salida: MOUREDEV
+ */ -->
+
+<!-- 
+0 = " " 
+1 = . , ?
+2 = A B C
+3 = D E F
+4 = G H I
+5 = J K L
+6 = M N O
+7 = P R Q S
+8 = T U V
+9 = W X Y Z 
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #cuerpo{
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+        }
+
+        #pantalla{
+            border: solid 1px black;
+            height: 20px;
+            margin: 5px;
+        }
+        #teclado{
+            border: 1px solid black;
+            text-align: center;
+            
+        }
+
+        .tecla{
+            border: 1px solid black;
+            display: inline;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+
+<div id="cuerpo">
+    <div id="pantalla">
+        
+    </div>
+
+    <div id="teclado">
+        <div id="1" class="tecla">1 |.|,|?|</div>
+        <div id="2" class="tecla">2 |A|B|C|</div>
+        <div id="3" class="tecla">3 |D|E|F|</div>
+        <br>
+        <div id="4" class="tecla">4 |G|H|I|</div>
+        <div id="5" class="tecla">5 |J|K|L|</div>
+        <div id="6" class="tecla">6 |M|N|O|</div>
+        <br>
+        <div id="7" class="tecla">7 |P|Q|R|</div>
+        <div id="8" class="tecla">8 |S|T|U|</div>
+        <div id="9" class="tecla">9 |V|W|X|Y|Z</div>
+        <br>
+        <div id="0" class="tecla">0 | |</div>
+    </div>
+</div>
+
+    <script>
+        
+
+    </script>
+</body>
+</html>
