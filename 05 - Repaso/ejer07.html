@@ -20,16 +20,18 @@
             let arrayFibonnaci = []
             let anterior = 0
             let actual = 1
+            let contador = 0
 
             if (limite == 0) {
                 arrayFibonnaci.push(0)
             } else {
                 arrayFibonnaci.push(0, 1)
-                while (anterior + actual <= limite) {
+                while (contador<(limite-2)) {
                     let siguiente = anterior + actual
                     arrayFibonnaci.push(siguiente)
                     anterior = actual
                     actual = siguiente
+                    contador++
                 }
             }
 

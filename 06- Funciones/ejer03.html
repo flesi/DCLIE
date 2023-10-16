@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="dibujarCuadrado3x3()">Dibujar Cuadrado 3x3</button>
+<div id="miBloque"></div>    
+
+
+<script>
+    let miBloque = document.getElementById("miBloque")
+    function dibujarCuadrado3x3(){
+        for (let i = 0; i < 3; i++) {
+            dibujarLinea3()
+            miBloque.innerHTML = miBloque.innerHTML + "<br>"
+        }
+    }
+
+    function dibujarLinea3() {
+        for (let i = 0; i < 3; i++) {
+            miBloque.innerHTML = miBloque.innerHTML + "*"
+        }
+    }
+</script>
+</body>
+</html>

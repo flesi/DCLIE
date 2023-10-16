@@ -1,0 +1,32 @@
+<!-- 13.- Crea una función que oculte parte de una dirección de email. Por ejemplo, si se le pasa 
+“1234567890@gmail.com”, devolverá “12345...@gmail.com”, es decir, sustituye la 2ª mitad del email 
+(antes de la @) por “...”. Escribe también el código necesario para probarla -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="email">
+    <br>
+    <button onclick="ocultarMail()">ocultarMailSubString</button>
+    <button onclick="ocultarMailSlit()">ocultarMailSlit</button>
+
+    <script>
+        function ocultarMailSubString() {
+            let email = document.getElementById("email").value
+            let final = email.indexOf("@")
+            console.log(email.substring(0,final))
+        }
+
+
+        function ocultarMailSlit() {
+            let email = document.getElementById("email").value
+            let emailSeparado = email.split("@")
+            console.log(emailSeparado[0])
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="elementos">
+        Dibujar Rectangulo<br><br>
+        <input type="text" placeholder="Altura" id="altura">
+        <input type="text" placeholder="Anchura" id="anchura">
+        <br><br>
+        <button onclick="obtenerTamanio()">Dibujar</button>
+    </div>
+    <br>
+    <div id="lienzo">
+
+    </div>
+    <script>
+        let lienzo = document.getElementById("lienzo")
+        let filas = document.getElementById("altura").innerHTML
+        let columnas = document.getElementById("anchura").innerHTML
+
+        function obtenerTamanio() {
+            filas = parseInt(document.getElementById("altura").value)
+            columnas = parseInt(document.getElementById("anchura").value)
+            dibujarRectangulo(filas,columnas)
+        }
+
+        function dibujarRectangulo(filas, columnas) {
+            lienzo.innerHTML = ""
+            for (let i = 0; i < filas; i++) {
+                for (let j = 0; j < columnas; j++) {
+                    lienzo.innerHTML = lienzo.innerHTML + "*"
+                }
+                lienzo.innerHTML = lienzo.innerHTML + "<br>"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

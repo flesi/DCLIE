@@ -37,54 +37,143 @@
 <body>
     <style>
         #cuerpo{
+            background-color:dimgray;
             border: 1px solid black;
-            width: 300px;
-            height: 300px;
+            width: 190px;
+            height: 320px;
+            
+            
         }
 
-        #pantalla{
+        .pantalla{
+            background-color:midnightblue;
+            color: whitesmoke;
             border: solid 1px black;
-            height: 20px;
+            height: 30px;
             margin: 5px;
-        }
-        #teclado{
-            border: 1px solid black;
-            text-align: center;
-            
+            font-size: large;
+            text-align: right;
         }
 
         .tecla{
             border: 1px solid black;
+            background-color: grey;
+            color: whitesmoke;
             display: inline;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+        }
+
+        .grid{
+            display: grid;
+            grid-template-columns: 55px 55px 55px;
+            grid-template-rows: 55px 55px 55px;
+            row-gap: 5px;
+            column-gap: 5px;
+            margin: 5px;
+
         }
     </style>
 
 <div id="cuerpo">
-    <div id="pantalla">
-        
+    <div id="pantallaNumeros" class="pantalla">
     </div>
 
-    <div id="teclado">
-        <div id="1" class="tecla">1 |.|,|?|</div>
-        <div id="2" class="tecla">2 |A|B|C|</div>
-        <div id="3" class="tecla">3 |D|E|F|</div>
-        <br>
-        <div id="4" class="tecla">4 |G|H|I|</div>
-        <div id="5" class="tecla">5 |J|K|L|</div>
-        <div id="6" class="tecla">6 |M|N|O|</div>
-        <br>
-        <div id="7" class="tecla">7 |P|Q|R|</div>
-        <div id="8" class="tecla">8 |S|T|U|</div>
-        <div id="9" class="tecla">9 |V|W|X|Y|Z</div>
-        <br>
-        <div id="0" class="tecla">0 | |</div>
+    <div id="pantallaLetras" class="pantalla">
+    </div>
+
+
+    <div id="teclado" class="grid">
+        <div id="1" onclick="teclado(1)" class="tecla item item-1">1 <br> |.|,|?|</div>
+        <div id="2" onclick="teclado(2)" class="tecla item item-1">2 <br> |A|B|C|</div>
+        <div id="3" onclick="teclado(3)" class="tecla item item-1">3 <br> |D|E|F|</div>
+        
+        <div id="4" onclick="teclado(4)" class="tecla item item-1">4 <br> |G|H|I|</div>
+        <div id="5" onclick="teclado(5)" class="tecla item item-1">5 <br> |J|K|L|</div>
+        <div id="6" onclick="teclado(6)" class="tecla item item-1">6 <br> |M|N|O|</div>
+        
+        <div id="7" onclick="teclado(7)" class="tecla item item-1">7 <br> |P|Q|R|</div>
+        <div id="8" onclick="teclado(8)" class="tecla item item-1">8 <br> |S|T|U|</div>
+        <div id="9" onclick="teclado(9)" class="tecla item item-1">9 <br> |V|W| <br> |X|Y|Z</div>
+        <div id="del" onclick="teclado(10)" class="tecla item item-1"><- <br> DEL</div>
+        <div id="0" onclick="teclado(0)" class="tecla">0  <br> | |</div>
+        <div id="del" onclick="teclado(11)" class="tecla item item-1"> - <br> OK</div>
     </div>
 </div>
 
     <script>
+        const tecladoT9 = {
+            1: ['.',',','?'],
+            2: ['A','B','C'],
+            3: ['D','E','F'],
+            4: ['G','H','I'],
+            5: ['J','K','L'],
+            6: ['M','N','O'],
+            7: ['P','Q','R'],
+            8: ['S','T','U'],
+            9: ['V','W','X','Y','Z'],
+            0: [' '],
+        }
+
+        let ultimaTecla
+        let contador = 0
+        let tecla = 0
+        let numeroTemporal = ""
+
+        let timeOutId
+
+        let pantallaLetras = document.getElementById("pantallaLetras")
+        let pantallaNumeros = document.getElementById("pantallaNumeros")
         
+
+        function teclado(tecla) {
+            
+            // Si pulsamos la misma tecla se incrementara en uno el contador
+            // Si llegamos al limite de letras por tecla o pulsamos una nueva el contador se pone a 0
+            
+            if (tecla==ultimaTecla) {
+                if (contador == tecladoT9[tecla].length -1) {
+                    contador = 0
+                } else {
+                    contador ++
+                }
+            } else {
+                contador = 0
+            }
+            
+
+            // MOSTRAR DATOS EN PANTALLA
+            //NUMEROS
+            numeroTemporal = ""
+            for (let i = 0; i <= contador; i++) {
+                numeroTemporal = numeroTemporal + tecla
+            }
+
+            pantallaNumeros.innerHTML = numeroTemporal
+
+            //LETRAS
+            let letraTemporal = tecladoT9[tecla][contador]
+            pantallaLetras.innerHTML =  letraTemporal
+
+            
+            //document.getElementById("pantallaNumeros").innerHTML = tecla
+            //pantallaLetras.innerHTML = pantallaLetras.innerHTML.slice(-1) + " " + nuevaLetra
+            
+            clearTimeout(timeOutId)
+            timeOutId = setTimeout(function() {
+                if (contador>=0) {
+                  pantallaNumeros.innerHTML = pantallaNumeros.innerHTML +" - "
+                  pantallaLetras.innerHTML = pantallaLetras.innerHTML + " - "
+                   ultimaTecla = null;                
+                }  
+            },4000)
+
+            ultimaTecla=tecla
+        }
+
+
+
 
     </script>
 </body>

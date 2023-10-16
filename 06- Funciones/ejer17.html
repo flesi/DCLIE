@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        document.write(fechaActual())
+        let dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+        let meses = ["Enero", "Febrero", "Marzo", "Abril" , "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Dicuembre"]
+
+
+        
+        function fechaActual() {
+            let fecha = new Date()
+            year = fecha.getFullYear()
+            month = fecha.getMonth() + 1
+            day = fecha.getDate()
+            console.log(fecha.valueOf())
+            return day + "-" + month + "-" + year
+        }
+    </script>
+</body>
+</html>

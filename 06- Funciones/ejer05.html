@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="dibujarCuadrado(parseInt(prompt('Escribe el tamaño')))">Dibujar linea</button>
+<div id="miBloque"></div>    
+
+
+<script>
+    let miBloque = document.getElementById("miBloque")
+    function dibujarCuadrado(num) {
+        for (let i = 0; i < num; i++) {
+            dibujarLinea(num)
+            miBloque.innerHTML = miBloque.innerHTML + "<br>"
+        }
+    }
+
+    function dibujarLinea(num) {
+        for (let i = 0; i < num; i++) {
+            miBloque.innerHTML = miBloque.innerHTML + "*"
+        }
+    }
+</script>
+</body>
+</html>

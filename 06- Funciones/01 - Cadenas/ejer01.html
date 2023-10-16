@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //tamanoCadena()
+        //clave()
+        recorrerCadena()
+
+
+        //Funcion que pida una cadena y muestre su tamaño
+        function tamanoCadena() {
+            let cadena = prompt("Escribe una cadena para saber su tamaño")
+            alert("El tamaño de la cadena es " + cadena.length)
+        }
+        /* Funcion que pida una clave "secreta" por pantalla, si la introduce correctamente aparece el mensaje
+        "HAS ACERTADO" (tambien son validas: SECRETA, seCreta...)*/
+        function clave() {
+            let esCorrecta=false
+            do {
+                let claveSecreta = prompt("Escribe la clave secreta")
+                if (claveSecreta.toLowerCase()=="secreta") {
+                    alert("Has acertado")
+                    esCorrecta=true
+                }
+            } while (esCorrecta==false);
+        }
+
+        /* Funcion que recorra una cadena y separe los caracteres con un guion (Que no aparezca al final)
+        Usar chatGPT para hacerlo */
+        function recorrerCadena() {
+            let cadena = prompt("Escribe una cadena")
+            let tamanioCadena= cadena.length
+            let nuevaCadena
+            for (let i = 0; i < tamanioCadena; i++) {
+                
+                nuevaCadena = nuevaCadena + cadena.charAt(i) 
+
+            }
+            console.log(nuevaCadena)
+        }
+
+    </script>
+</body>
+</html>
