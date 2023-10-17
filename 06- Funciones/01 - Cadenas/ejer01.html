@@ -11,7 +11,14 @@
     <script>
         //tamanoCadena()
         //clave()
-        recorrerCadena()
+        //recorrerCadena()
+        //recorrerCadena2()
+        //buscar()
+        //cortar()
+        //remplazar()
+        //concatenar()
+        //invertir()
+
 
 
         //Funcion que pida una cadena y muestre su tamaño
@@ -19,6 +26,8 @@
             let cadena = prompt("Escribe una cadena para saber su tamaño")
             alert("El tamaño de la cadena es " + cadena.length)
         }
+
+
         /* Funcion que pida una clave "secreta" por pantalla, si la introduce correctamente aparece el mensaje
         "HAS ACERTADO" (tambien son validas: SECRETA, seCreta...)*/
         function clave() {
@@ -32,18 +41,72 @@
             } while (esCorrecta==false);
         }
 
-        /* Funcion que recorra una cadena y separe los caracteres con un guion (Que no aparezca al final)
-        Usar chatGPT para hacerlo */
+
+        /* Funcion que recorra una cadena y separe los caracteres con un guion (Que no aparezca al final)*/
         function recorrerCadena() {
             let cadena = prompt("Escribe una cadena")
-            let tamanioCadena= cadena.length
-            let nuevaCadena
-            for (let i = 0; i < tamanioCadena; i++) {
-                
-                nuevaCadena = nuevaCadena + cadena.charAt(i) 
+            alert(cadena.split("").join("-"))
+        }
 
+        function recorrerCadena2() {
+            let cadena = prompt("Escribe una cadena")
+            let longCadena = cadena.length
+            let nuevaCadena =""
+
+            for (let i = 0; i < longCadena; i++) {
+                nuevaCadena += cadena.charAt(i)
+                if (i<longCadena-1) {
+                    nuevaCadena += " - "
+                }
             }
-            console.log(nuevaCadena)
+            alert(nuevaCadena)
+        }
+
+        //Funcion que defina una variable cadena con "hola que tal yo bien" y busque "tal" para mostrar la cadena desde "tal" hasta el final
+        function buscar() {
+            let cadena="hola que tal yo bien"
+            alert(cadena.substring(cadena.indexOf("tal")))
+
+        }
+
+        // Funcion que defina una cadena, la corte y la meta en un array y luego muestre
+        // que en el indice X del array esta tal cadena
+        function cortar() {
+            let cadena = prompt("Introduce una cadena")
+            cadenaArray = cadena.split(" ")
+            
+            longCadena=cadenaArray.length
+            for (let i = 0; i < longCadena; i++) {
+                alert("Posicion " + i + " es: " + cadenaArray[i])
+            }
+        }
+
+        // Funcion que rellene ceros a la izquierda de un DNI hasta que llegue a 9 caracteres
+        function remplazar() {
+            alert(prompt("Introduce un DNI").padStart(9,"0"))
+        }
+
+        //Crea un array de elementos y muestra dichos elementos por pantalla separados por "#", ahora haz lo mismo con uno bidimensional
+        function concatenar() {
+            let arrayUnidimensional = ["Perro","Gato","Serpiente","Elefante"]
+            alert(arrayUnidimensional.join("#"))
+
+            let arrayBidimensional = [arrayUnidimensional,["Pantalla","Teclado","Raton","Torre"]]
+            // alert(arrayBidimensional[0].join("#") + "#" + arrayBidimensional[1].join("#"))
+            
+            for (let i in arrayBidimensional) {
+                alert("Indice " + i + "= " + arrayBidimensional[i].join("#"))
+            }
+
+        }
+        //Mostrar los elementos de un array del final al principio usando pop
+        function invertir( ) {
+            let arrayAnimales = ["Perro","Gato","Serpiente","Elefante"]
+            let longArrayAnimales = arrayAnimales.length
+
+            for (let i = 0; i < longArrayAnimales; i++) {
+                alert(arrayAnimales.pop())
+            }
         }
 
     </script>
