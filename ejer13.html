@@ -12,7 +12,7 @@
     <input id="email">
     <br>
     <button onclick="ocultarMail()">ocultarMailSubString</button>
-    <button onclick="ocultarMailSlit()">ocultarMailSlit</button>
+    <button onclick="ocultarMailSplit()">ocultarMailSlit</button>
 
     <script>
         function ocultarMailSubString() {
@@ -22,7 +22,7 @@
         }
 
 
-        function ocultarMailSlit() {
+        function ocultarMailSplit() {
             let email = document.getElementById("email").value
             let emailSeparado = email.split("@")
             console.log(emailSeparado[0])
