@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <style>
+            table {
+        border-collapse: collapse;
+        width: 210px; /* Ajusta según necesites */
+    }
+    td {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border: 1px solid #000;
+    }
+        .mes {
+            border: 1px solid #000;
+            margin: 10px;
+            display: inline-block;
+        }
+        .titulo {
+            background-color: #eee;
+            text-align: center;
+            font-weight: bold;
+        }
+        .dia {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            border: 1px solid #000;
+        }
+        .sabado {
+            font-weight: bold;
+        }
+        .domingo {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div><h1>2023</h1></div>
+    <div id="calendario"></div>
+
+    <script>
+        function obtenerDiasDelMes(mes, año) {
+    return new Date(año, mes, 0).getDate();
+}
+
+function generarCalendario(año) {
+    const meses = [
+        'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+    const dias = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+
+    let calendarioHTML = '';
+
+    for (let mes = 0; mes < 12; mes++) {
+        calendarioHTML += `<div class="mes">
+            <div class="titulo">${meses[mes]}</div>
+            <table>
+            <tr>`;
+
+        // Dibujar días de la semana
+        for (let d = 0; d < 7; d++) {
+            let claseDia = d === 5 ? 'sabado' : d === 6 ? 'domingo' : '';
+            calendarioHTML += `<td class="${claseDia}">${dias[d]}</td>`;
+        }
+
+        calendarioHTML += `</tr><tr>`;
+
+        // Dibujar espacios vacíos hasta el primer día del mes
+        let primerDiaMes = new Date(año, mes, 1).getDay();
+        primerDiaMes = primerDiaMes === 0 ? 6 : primerDiaMes - 1; // Ajuste porque en JS, domingo es 0
+        for (let d = 0; d < primerDiaMes; d++) {
+            calendarioHTML += `<td></td>`;
+        }
+
+        // Dibujar días del mes
+        let totalDias = obtenerDiasDelMes(mes + 1, año);
+        for (let d = 1; d <= totalDias; d++) {
+            if ((d + primerDiaMes) % 7 === 1 && d !== 1) {
+                calendarioHTML += `</tr><tr>`;
+            }
+            let fecha = new Date(año, mes, d);
+            let claseDia = fecha.getDay() === 6 ? 'sabado' : fecha.getDay() === 0 ? 'domingo' : '';
+            calendarioHTML += `<td class="${claseDia}">${d}</td>`;
+        }
+
+        calendarioHTML += `</tr></table></div>`;
+    }
+
+    document.getElementById("calendario").innerHTML = calendarioHTML;
+}
+
+generarCalendario(2023);
+
+    </script>
+</body>
+</html>

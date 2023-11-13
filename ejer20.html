@@ -1,83 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
-            table {
+      .mes {
+        float: left;
+        margin-right: 10px;
+      }
+
+      .domingo {
+        color: #800000;
+        font-weight: bold;
+      }
+
+      td {
+        border: 1px solid black;
+        width: 18px;
+      }
+
+      table {
+        border: 1px solid black;
         border-collapse: collapse;
-        width: 210px; /* Ajusta según necesites */
-    }
-    td {
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        border: 1px solid #000;
-    }
-        .mes {
-            border: 1px solid #000;
-            margin: 10px;
-            display: inline-block;
-        }
-        .titulo {
-            background-color: #eee;
-            text-align: center;
-            font-weight: bold;
-        }
-        .dia {
-            width: 30px;
-            height: 30px;
-            display: inline-block;
-            text-align: center;
-            vertical-align: top;
-            border: 1px solid #000;
-        }
-        .sabado {
-            font-weight: bold;
-        }
-        .domingo {
-            color: red;
-        }
+      }
+
+      .saltoLinea {
+        float: left;
+        clear: left;
+        margin-right: 10px;
+      }
+
+      .enGris {
+        color: rgba(0, 0, 0, 0.5);
+      }
     </style>
-</head>
-<body>
-    <div><h1>2023</h1></div>
-    <div id="calendario"></div>
+  </head>
+
+  <body>
+    <!-- <div class="mes">
+        <h3>Ene</h3>
+        <table>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td class="domingo">5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td class="domingo">12</td>
+            </tr>
+
+        </table>
+    </div> -->
+
+    <div id="calendarioHTML"></div>
 
     <script>
-        function obtenerDiasDelMes(mes, año) {
-    return new Date(año, mes, 0).getDate();
-}
+        let año = 2023
+      let meses = [
+        "Ene",
+        "Feb",
+        "Mar",
+        "April",
+        "Mayo",
+        "Jun",
+        "Jul",
+        "Ago",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dic",
+      ];
+      let dias = ["L", "M", "X", "J", "V", "S", "D"];
 
-function generarCalendario(año) {
-    const meses = [
-        'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
-    const dias = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
-
-    let calendarioHTML = '';
-
-    for (let mes = 0; mes < 12; mes++) {
-        calendarioHTML += `<div class="mes">
-            <div class="titulo">${meses[mes]}</div>
-            <table>
-            <tr>`;
-
-        // Dibujar días de la semana
+      let calendarioHTML = "";
+      //Dibujar MES
+      for (let mes = 0; mes < 12; mes++) {
+        calendarioHTML += `
+            <div class="mes"> 
+                <div class="titulo">${meses[mes]}</div> 
+                    <table>
+                        <tr>`;
+        //Dibujar Semanas
         for (let d = 0; d < 7; d++) {
-            let claseDia = d === 5 ? 'sabado' : d === 6 ? 'domingo' : '';
-            calendarioHTML += `<td class="${claseDia}">${dias[d]}</td>`;
+          let claseDia = d === 5 ? "sabado" : d === 6 ? "domingo" : "";
+
+          calendarioHTML += `<td class="${claseDia}">${dias[d]}</td>`;
         }
 
         calendarioHTML += `</tr><tr>`;
-
         // Dibujar espacios vacíos hasta el primer día del mes
         let primerDiaMes = new Date(año, mes, 1).getDay();
         primerDiaMes = primerDiaMes === 0 ? 6 : primerDiaMes - 1; // Ajuste porque en JS, domingo es 0
         for (let d = 0; d < primerDiaMes; d++) {
-            calendarioHTML += `<td></td>`;
+          calendarioHTML += `<td></td>`;
         }
 
         // Dibujar días del mes
@@ -92,13 +118,9 @@ function generarCalendario(año) {
         }
 
         calendarioHTML += `</tr></table></div>`;
-    }
+      }
 
-    document.getElementById('calendario').innerHTML = calendarioHTML;
-}
-
-generarCalendario(2023);
-
+      document.getElementById("calendarioHTML").innerHTML = calendarioHTML;
     </script>
-</body>
+  </body>
 </html>

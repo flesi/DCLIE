@@ -1,0 +1,256 @@
+<!-- Hacer un trivial sencillo. El funcionamiento del programa será el siguiente:
+- Hay que crear 10 preguntas. Los enunciados los guardaremos en un array, las respuestas en un array bidimensional 
+y la opción correcta en otro array:
+enunciados[n] = ‘Enunciado de las preguntas’;
+respuestas[n] = [[‘respuesta 1’,’respuesta 2’,’respuesta 3’,’respuesta 4’)], [‘respuesta 1’,’respuesta 2’,’respuesta 3’,’respuesta 4’)]]; 
+solucion[n] = indice; // Indice de la respuesta correcta (0,1,2 o 3)
+- Crear una función: preguntaSimple con las características:
+    * Recibe como parámetros un texto (con el enunciado de la pregunta), un array (con las
+posibles respuestas) y número (indica el índice el elemento del array que tiene la
+respuesta correcta)
+    * Esta función genera un prompt con el enunciado y las respuestas, y el usuario tiene que
+indicar el ‘número de la respuesta correcta’. Por ejemplo: Enunciado de la pregunta
+    1.- respuesta 1
+    2.- respuesta 2 
+    3.- respuesta 3 
+    4.- respuesta 4
+    * Devuelve true si ha acertado y false en caso contrario.
+- El programa elegirá 5 preguntas (de las 10) al azar y se las irá preguntando al usuario.
+- Al terminar, el programa mostrará un mensaje indicando la puntuación de respuestas
+acertadas.
+- Y, por último, le pregunta al usuario si quiere volver a jugar. -->
+<!-- 
+0
+Pregunta: ¿Cuál es el río más largo del mundo?
+A) El Nilo
+B) El Amazonas
+C) El Yangtsé
+D) El Misisipi
+Respuesta correcta: B) El Amazonas
+
+
+1
+Pregunta: ¿Qué elemento químico tiene el símbolo 'Au'?
+A) Plata
+B) Oro
+C) Aluminio
+D) Argón
+Respuesta correcta: B) Oro
+
+
+2
+Pregunta: ¿Quién escribió 'Cien años de soledad'?
+A) Gabriel García Márquez
+B) Mario Vargas Llosa
+C) Julio Cortázar
+D) Carlos Fuentes
+Respuesta correcta: A) Gabriel García Márquez
+
+
+3
+Pregunta: ¿En qué país se encuentra la ciudad de Dubái?
+A) Arabia Saudita
+B) Qatar
+C) Emiratos Árabes Unidos
+D) Omán
+Respuesta correcta: C) Emiratos Árabes Unidos
+
+
+4
+Pregunta: ¿Qué órgano del cuerpo humano produce la insulina?
+A) El hígado
+B) El páncreas
+C) Los riñones
+D) El estómago
+Respuesta correcta: B) El páncreas
+
+
+5
+Pregunta: ¿Qué artista pintó la famosa obra 'La noche estrellada'?
+A) Pablo Picasso
+B) Vincent van Gogh
+C) Salvador Dalí
+D) Claude Monet
+Respuesta correcta: B) Vincent van Gogh
+
+
+6
+Pregunta: ¿Cuál es la capital de Australia?
+A) Sydney
+B) Melbourne
+C) Canberra
+D) Perth
+Respuesta correcta: C) Canberra
+
+
+7
+Pregunta: ¿Qué estructura construyeron los romanos para transportar agua?
+A) Los diques
+B) Las pirámides
+C) Los acueductos
+D) Los coliseos
+Respuesta correcta: C) Los acueductos
+
+
+8
+Pregunta: ¿Cuál de estos animales es un mamífero marino?
+A) Tiburón blanco
+B) Delfín
+C) Pulpo
+D) Estrella de mar
+Respuesta correcta: B) Delfín
+
+
+9
+Pregunta: ¿Qué famoso físico teórico desarrolló la teoría de la relatividad?
+A) Isaac Newton
+B) Niels Bohr
+C) Albert Einstein
+D) Richard Feynman
+Respuesta correcta: C) Albert Einstein -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      background-color: azure;
+    }
+    #contadores {
+      display: inline-block;
+      position: relative;
+      border: 1px solid black;
+      padding: 1%;
+      background-color: wheat;
+    }
+    .pregunta {
+      border: 1px solid black;
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 3%;
+    }
+    .enunciado {
+      background-color: cadetblue;
+      
+    }
+
+    .respuesta {
+      background-color: ghostwhite;
+    }
+
+    div .respuesta:hover {
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="contadores">
+    <div id="aciertos">Numero Aciertos: 0</div>
+    <div id="fallos">Numero Fallos: 0</div>
+  </div>
+  <br /><br />
+  <div id="trivial"></div>
+
+  <script>
+    let enunciados = [
+      "¿Cuál es el río más largo del mundo?",
+      "¿Qué elemento químico tiene el símbolo 'Au'?",
+      "¿Quién escribió 'Cien años de soledad'?",
+      "¿En qué país se encuentra la ciudad de Dubái?",
+      "¿Qué órgano del cuerpo humano produce la insulina?",
+      "¿Qué artista pintó la famosa obra 'La noche estrellada'?",
+      "¿Cuál es la capital de Australia?",
+      "¿Qué estructura construyeron los romanos para transportar agua?",
+      "¿Cuál de estos animales es un mamífero marino?",
+      "¿Qué famoso físico teórico desarrolló la teoría de la relatividad?",
+    ];
+
+    let respuestas = [
+      ["A) El Nilo", "B) El Amazonas", "C) El Yangtsé", "D) El Misisipi"],
+      ["A) Plata", "B) Oro", "C) Aluminio", "D) Argón"],
+      ["A) Gabriel García Márquez", "B) Mario Vargas Llosa", "C) Julio Cortázar", "D) Carlos Fuentes"],
+      ["A) Arabia Saudita", "B) Qatar", "C) Emiratos Árabes Unidos", "D) Omán"],
+      ["A) El hígado", "B) El páncreas", "C) Los riñones", "D) El estómago"],
+      ["A) Pablo Picasso", "B) Vincent van Gogh", "C) Salvador Dalí", "D) Claude Monet"],
+      ["A) Sydney", "B) Melbourne", "C) Canberra", "D) Perth"],
+      ["A) Los diques", "B) Las pirámides", "C) Los acueductos", "D) Los coliseos"],
+      ["A) Tiburón blanco", "B) Delfín", "C) Pulpo", "D) Estrella de mar"],
+      [
+        "A) Isaac Newton",
+        "B) Niels Bohr",
+        "C) Albert Einstein",
+        "D) Richard Feynman",
+      ],
+    ];
+    let indiceSoluciones = [1, 1, 0, 2, 1, 1, 2, 2, 1, 2];
+
+
+    let aciertos = 0;
+    let fallos = 0;
+
+    let idNumRespuesta = 0;
+    function preguntaSimple(enunciado, respuestas, solucion) {
+      let nPreg = enunciados.indexOf(enunciado) 
+      let htmlContent = `<div class="pregunta"><div class='enunciado'>${enunciado}</div>`;
+      let nRespuestas = respuestas.length
+      for (let i = 0; i < nRespuestas; i++) {
+
+        htmlContent += `<div id='${idNumRespuesta}' value='${i}' class='respuesta' onclick='comprobarRespuesta(${idNumRespuesta},${i},${solucion})'>${respuestas[i]}</div>`;
+        idNumRespuesta ++;
+      }
+
+      htmlContent += `</div>`
+      document.getElementById("trivial").innerHTML += htmlContent;
+    }
+
+
+
+    function comprobarRespuesta(id,nResp,solucion) {
+      if (nResp == solucion) {
+        document.getElementById(id).style.backgroundColor="Green"
+        
+        aciertos++;
+        document.getElementById('aciertos').innerText = `Numero Aciertos: ${aciertos}`;
+      } else {
+        let idRespuestaCorrecta = id - nResp + solucion;
+        document.getElementById(id).style.backgroundColor="Red"
+        document.getElementById(idRespuestaCorrecta).style.backgroundColor="Green"
+
+        fallos++;
+        document.getElementById('fallos').innerText = `Numero Fallos: ${fallos}`;
+      }
+    
+    }
+
+
+
+    const nPreguntas = 5;
+    //const nRespuestas = 4;
+    //ARRAY RANGO 1-10 DE NUMEROS SIN REPETIR
+    let numeros = [];
+    while (numeros.length < nPreguntas) {
+      let numeroAzar = Math.floor(Math.random() * 9) + 0;
+      if (numeros.indexOf(numeroAzar) == -1) {
+        numeros.push(numeroAzar);
+      }
+    }
+
+    for (let i = 0; i < nPreguntas; i++) {
+      let num = numeros[i];
+      preguntaSimple(
+        enunciados[numeros[i]],
+        respuestas[numeros[i]],
+        indiceSoluciones[numeros[i]]
+      );
+    }
+  </script>
+</body>
+
+</html>

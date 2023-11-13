@@ -5,29 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="miScript.js"></script>
+    <style>
+        #ejercicios{
+            margin-top: 10%;
+            margin-left: 25%;
+            padding: 2%;
+            width: 50%;
+            height: 50%;
+            border: 1px solid black;
+            box-shadow: 5px 5px 15px 5px black
+        }
+
+        button{
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div id="miBloque"></div>
-    <button onclick="ejer1()">Ejercicio1</button><br><br>
-    <button onclick="dibujarLinea3()">Ejercicio2</button><br><br>
-    <button onclick="dibujarCuadrado3x3()">Ejercicio3</button><br><br>
-    <button onclick="dibujarLinea(parseInt(prompt('numero asteriscos')))">Ejercicio4</button><br><br>
-    <button onclick="ejer5()">Ejercicio5</button><br><br>
-    <button onclick="ejer6()">Ejercicio6</button><br><br>
-    <button onclick="ejer7()">Ejercicio7</button><br><br>
-    <button onclick="menor(parseInt(prompt('numero 1')),parseInt(prompt('numero 2')))">Ejercicio8</button><br><br>
-    <button onclick="hazTodo()">Ejercicio9</button><br><br>
-    <button onclick="ejer10()">Ejercicio10</button><br><br>
-    <button onclick="ejer11()">Ejercicio11</button><br><br>
-    <button onclick="ejer12()">Ejercicio12</button><br><br>
-    <button onclick="ejer13()">Ejercicio13</button><br><br>
-    <button onclick="ejer14()">Ejercicio14</button><br><br>
-    <button onclick="ejer15()">Ejercicio15</button><br><br>
-    <button onclick="ejer16()">Ejercicio16</button><br><br>
-    <button onclick="ejer17()">Ejercicio17</button><br><br>
-    <button onclick="ejer18()">Ejercicio18</button><br><br>
-    <button onclick="ejer19()">Ejercicio19</button><br><br>
+    <div id="miBloque">
 
+    </div>
+
+    <div id="ejercicios">
+        <button onclick="ejer1()">Ejercicio1</button>
+        <button onclick="dibujarLinea3()">Ejercicio2</button>
+        <button onclick="dibujarCuadrado3x3()">Ejercicio3</button>
+        <button onclick="dibujarLinea(parseInt(prompt('numero asteriscos')))">Ejercicio4</button>
+        <button onclick="dibujarCuadrado(parseInt(prompt('Alto')),parseInt(prompt('Ancho')))">Ejercicio5</button>
+        <button onclick="dibujarRectangulo(parseInt(prompt('Alto')),parseInt(prompt('Ancho')))">Ejercicio6</button>
+        <button onclick="cubo(prompt('Escribe un numero'))">Ejercicio7</button>
+        <button onclick="menor(parseInt(prompt('numero 1')),parseInt(prompt('numero 2')))">Ejercicio8</button>
+        <button onclick="hazTodo()">Ejercicio9</button>
+        <button><del>Ejercicio10</del></button>
+        <button onclick="ejer11(prompt('Escribe una cadena'))">*Ejercicio11</button>
+        <button onclick="acortarNombre(prompt('Escribe nombre y apellido \n *no funciona con nombres compuestos'))">Ejercicio12</button>
+        <button onclick="ocultarMail(prompt('Escribe un correo'))">Ejercicio13</button>
+        <button onclick="espaciosAGuionesYMinusculas(prompt('Escribe varias palabras'))">Ejercicio14</button>
+        <button onclick="contieneSubcadena(prompt('Escribe primera cadena'), prompt('Escribe la segunda cadena'))">Ejercicio15</button>
+        <button onclick="dado(parseInt(prompt('Valor 1')),parseInt(prompt('Valor 2')))">Ejercicio16</button>
+        <button onclick="todayString()">Ejercicio17</button>
+        <button onclick="vencimientoFacturas(prompt('Escribe una fecha con formato dd-mm-yyyy'))">Ejercicio18</button>
+        <button onclick="fechasMeses(parseInt(prompt('Escribe el Mes')),parseInt(prompt('Escribe el año')))">*Ejercicio19</button>
+    </div>
   
 </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*Si el número que introduzco por pantalla es menor que 10 me sale el mensaje "El número X es menor que 10"
+        Me funciona con el 0 pero no con los demás números*/
+        function esMenor() {
+            let n1 = prompt("Introduce el primer número")
+            // let suman1 = n1 + 3
+            if (n1 < 10) {
+                alert(n1 + "  es menor que 10 ")
+            }
+        }
+        /*En esta función tiene un parámetro de entrada con la cadena "hola", pero no me muestra nada por el alert
+        Está comentada porque si la descomento no me funciona nada*/
+        function dameCadena(cadena) {
+            //let cadena = prompt("Introduce cadena: ")
+            alert(cadena)
+        }
+
+        /*Función a la que le indico que corte por un índice y corte por ese índice + 1*/
+        function cortar() {
+            let cadena = prompt("Dime cadena a cortar: ")
+            let indiceCorte = parseInt(prompt("Por donde corto: "))
+            let cortada = cadena.substring(0,indiceCorte + 1)
+            alert(cortada)
+        }
+
+        /*Le meto 2023 el mes 10 y el día 1 y no se suma 10 para que la fecha sea 11/10/2023
+        Le sumo 2 al mes que introduzco y me sale NaN*/
+        function fecha() {
+            let año = parseInt(prompt("Introduce año"))
+            let mes = parseInt(prompt("Introduce mes"))
+            let dia = parseInt(prompt("Introduce dia"))
+            let f1 = new Date(año, mes, dia)
+            f1.setDate(f1.getDate()+10)
+            //alert("Dia: " + f1.getDate())
+            //f1.setMonth(f1.getMonth())
+            //alert("Mes: " + f1.getMonth())
+            alert(f1.getDate() + "/" + f1.getMonth() + "/" + f1.getFullYear())
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="esMenor()">Es menor</button>
+    <button onclick="dameCadena('hola')">Dame cadena</button>
+    <button onclick="cortar()">Cortar</button>
+    <button onclick="fecha()">Fecha</button>
+</body>
+
+</html>
